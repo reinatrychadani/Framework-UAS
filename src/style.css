@@ -1,0 +1,125 @@
+style.css
+.content li {
+  margin-bottom: 10px;
+}
+
+body {
+  background: rgb(0, 204, 255);
+  background-size: 2000px;
+  padding: 30px;
+  margin: 30px;
+}
+.title {
+  color: white;
+  text-align: center;
+}
+h1 {
+  font-family: 'candana';
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  
+}
+
+h2, p, ul, li {
+    color: white;
+    font-family: 'candana';
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+p2 {
+    font-family: 'candana';
+    text-align: center;
+    font-size: 25px;
+  }
+
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 30;
+}
+
+ul.header1 li {
+  display: inline;
+  list-style-type: none;
+  margin: 30;
+}
+
+ul.header {
+  background-color: white;
+  text-align: left;
+  padding-right: 8cm;  
+}
+
+ul.header1 {
+  background-color: white;
+  text-align: right;
+
+  
+}
+
+ul.header li a {
+  color: white;
+  font-weight: 250;
+  text-decoration: none;
+  padding: 30px;
+  display: inline-block;
+}
+
+ul.header li1 a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 30px;
+  display: inline-block;
+}
+
+ul.header1 li a {
+  color: white;
+  font-weight: 250;
+  text-decoration: none;
+  padding: 30px;
+  display: inline-block;
+}
+
+.content {
+  outline: 4px solid white;
+  outline-offset: 0px;
+  padding: 30px;
+}
+
+.content h2 {
+  color: white;
+  padding: 30;
+  margin: 30;
+}
+
+.content p {
+    color: white;
+    padding: 30;
+    margin: 30;
+    letter-spacing: 1px;
+    line-height: 35px;
+}
+
+.content p2 {
+  color: white;
+  padding: 30;
+  margin: 30;
+  letter-spacing: 1px;
+  line-height: 35px;
+}
+
+.btn-btn {
+  align-content: center;
+}
+
+
+
+/* .content h4 {
+  color: #FFF;
+  padding: 0;
+  margin: 0;
+} */
