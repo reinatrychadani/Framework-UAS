@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ListBuku from "../components/ListBuku";
 import firebase from "firebase";
 import firebaseConfig from "../firebase/config";
-//import Buku from "../components/Buku";
 
 class Buku extends Component {
 	constructor(props) {
@@ -14,7 +13,7 @@ class Buku extends Component {
 		}
 	}
 
-	ambilDataDariServerAPI = () => { //untuk mengambil data dari API dengan penambahan sort dan order
+	ambilDataDariServerAPI = () => { 
 		let ref = firebase.database().ref("/");
 		ref.on("value", snapshot => {
 			const state = snapshot.val();
@@ -22,14 +21,14 @@ class Buku extends Component {
 		});
 	}
 
-	simpanDataKeServerAPI = () => { //untuk mengirim/insert data ke API Realtime Database Firebase
+	simpanDataKeServerAPI = () => { 
 		firebase.database()
 			.ref("/")
 			.set(this.state);
 	}
 
-	componentDidMount() { //untuk mengecek ketika component telah di-mount-ing, maka panggil API
-		this.ambilDataDariServerAPI() //ambil data dari server API lokal
+	componentDidMount() { 
+		this.ambilDataDariServerAPI() 
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -38,7 +37,7 @@ class Buku extends Component {
 		}
 	}
 
-	handleHapusBuku = (idBuku) => { //untuk menghandle button action hapus data
+	handleHapusBuku = (idBuku) => { 
 		const { listBuku } = this.state;
 		const newState = listBuku.filter(data => {
 			return data.uid !== idBuku;
@@ -46,8 +45,8 @@ class Buku extends Component {
 		this.setState({ listBuku: newState });
 	}
 
-	handleTambahBuku = (event) => { //untuk meng-handle form tambah data buku
-		let formInsertBuku = {...this.state.insertBuku}; //clonning data state insertBuku ke dalam variabel formInsertBuku
+	handleTambahBuku = (event) => { 
+		let formInsertBuku = {...this.state.insertBuku}; 
 		let timestamp = new Date().getTime(); //untuk menyimpan waktu (sebagai ID buku)
 		formInsertBuku['id'] = timestamp;
 		formInsertBuku[event.target.name] = event.target.value; //menyimpan data onchange ke formInsertBuku sesuai dengan target yang diisi
@@ -56,14 +55,14 @@ class Buku extends Component {
 		});
 	}
 
-	handleTombolSimpan = (event) => { //untuk menghandle tombol simpan
+	handleTombolSimpan = (event) => { 
 		let title = this.refs.judulBuku.value;
 		let type = this.refs.jenisBuku.value;
 		let body = this.refs.deskripsiBuku.value;
 		let author = this.refs.penulisBuku.value;
 		let uid = this.refs.uid.value;
 
-		if (uid && type && author && title && body) { //cek apakah semua data memiliki nilai (tidak null)
+		if (uid && type && author && title && body) { 
 			const { listBuku } = this.state;
 			const indeksBuku = listBuku.findIndex(data => {
 				return data.uid === uid;
@@ -73,7 +72,7 @@ class Buku extends Component {
 			listBuku[indeksBuku].title = title;
 			listBuku[indeksBuku].body = body;
 			this.setState({ listBuku });
-		} else if (type && author && title && body) { //cek jika apakah tidak ada data di server
+		} else if (type && author && title && body) { 
 			const uid = new Date().getTime().toString();
 			const { listBuku } = this.state;
 			listBuku.push({ uid, type, author, title, body });
@@ -148,9 +147,9 @@ class Buku extends Component {
 				</table>
 
 				{
-					this.state.listBuku.map(buku => { //looping dan masukkan untuk setiap data yang ada di listBuku ke variabel buku
+					this.state.listBuku.map(buku => { 
 						return <ListBuku key={buku.uid} judul={buku.title} jenis={buku.type} deskripsi={buku.body}
-						penulis={buku.author} idBuku={buku.uid} hapusBuku={this.handleHapusBuku} /> //mappingkan data json dari API sesuai dengan kategoringa
+						penulis={buku.author} idBuku={buku.uid} hapusBuku={this.handleHapusBuku} /> 
 					})
 				}
 
