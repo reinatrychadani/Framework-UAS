@@ -4,7 +4,7 @@ style.css
 }
 
 body {
-  background: rgb(0, 204, 255);
+  background: rgb(0, 162, 255);
   background-size: 2000px;
   padding: 30px;
   margin: 30px;
@@ -115,11 +115,3 @@ ul.header1 li a {
 .btn-btn {
   align-content: center;
 }
-
-
-
-/* .content h4 {
-  color: #FFF;
-  padding: 0;
-  margin: 0;
-} */
